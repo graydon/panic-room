@@ -13,6 +13,13 @@ The idea is to bolt something like an arena on to sj/lj such that:
 It's a sort of miniature semi-transaction, similar to catch-unwind, but without
 any actual unwinding, just sj/lj. A strange mutant relative of SEH.
 
+Considerations:
+
+  - I'm not actually sure there's a reason to connect memory allocation to
+    control this way. Maybe the two pieces should remain separate. I think it
+    is possibly convenient to entangle the arena stack, jmp_buf stack, panic
+    handlers and destructors all together, but I might be imagining it.
+
 Limitations:
 
   - Absent access to a single internal API, it can't reset the panic number, so
