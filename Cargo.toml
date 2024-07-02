@@ -1,0 +1,18 @@
+[package]
+name = "panic-room"
+version = "0.1.0"
+edition = "2021"
+authors = ["Graydon Hoare <graydon@pobox.com>"]
+description = "An experiment in panic handling with setjmp/longjmp and arenas"
+license = "MIT OR Apache-2.0"
+repository = "http://github.com/graydon/panic-room"
+keywords = ["panic", "setjmp", "longjmp", "arena"]
+
+[profile.release]
+panic = "abort"
+
+[profile.dev]
+panic = "abort"
+
+[dependencies]
+setjmp = "0.1.4"
